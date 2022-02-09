@@ -18,3 +18,4 @@ con.commit();
 cs.close(); # 2개의 연결통로
 con.close(); # connection이 맺어지면 반드시 만들어야 함
 
+#create db
