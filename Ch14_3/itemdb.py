@@ -1,9 +1,9 @@
-import sqlite3, itemsql
+# itemdb.py
+import sqlite3,itemsql
 
 def connect(dbname):
     con = sqlite3.connect(dbname);
     return con;
-
 def close(*cs):
     for c in cs:
         if c is not None:
@@ -20,6 +20,7 @@ def makeTable(name):
     finally:
         close(cs,con);
 
+
 def insert(*data):
     try:
         con = connect('item.db');
@@ -27,9 +28,10 @@ def insert(*data):
         cs.execute(itemsql.ITEM_INSERT % data);
         con.commit();
     except:
-        raise Exception
+        raise Exception;
     finally:
-        close(cs,con);
+        close(cs, con);
+
 
 def delete():
     return None;
@@ -54,7 +56,7 @@ def select():
 
 
 if __name__ == '__main__':
-    #makeTable('item.db')
+    #makeTable('item.db');
     # try:
     #     insert(104,'pants',10000,3.4);
     # except:
@@ -62,6 +64,11 @@ if __name__ == '__main__':
     try:
         results = select();
         for data in results:
-            print('%d %s %d %f'%data);
+            print('%d %s %d %f' % data);
     except:
         print('Error');
+
+
+
+
+
