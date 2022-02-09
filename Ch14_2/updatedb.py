@@ -15,6 +15,8 @@ try:
     cs.execute(updatesql % (phone, addr,name));
     con.commit();
 
+# 중복되는 부분이 많다, 어떻게 모듈화 할 것인가?
+
 except:
     print('Error');
 
