@@ -1,6 +1,6 @@
 import sqlite3
 
-con = sqlite3.connect('addr.db')
+con = sqlite3.connect('addr.db') # db생성
 cs = con.cursor();
 dropsql = 'DROP TABLE IF EXISTS tb_addr';
 creatsql = '''
