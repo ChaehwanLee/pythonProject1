@@ -1,3 +1,5 @@
+# updatedb.py
+
 import sqlite3
 
 con= None;
@@ -6,15 +8,15 @@ cs = None;
 try:
     con = sqlite3.connect('addr.db');
     cs = con.cursor();
-    insertsql = 'INSERT INTO tb_addr VALUES ("%s","%s","%s")';
+    updatesql = 'UPDATE tb_addr SET phone="%s", addr="%s" WHERE name="%s" ';
     name = input('Input Name:');
     phone = input('Input Phone:');
     addr = input('Input Addr:');
-    cs.execute(insertsql % (name, phone, addr));
+    cs.execute(updatesql % (phone, addr,name));
     con.commit();
 
 except:
-    print('Duplicated ID Error');
+    print('Error');
 
 finally:
     if cs is not None:

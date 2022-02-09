@@ -1,3 +1,5 @@
+# deletedb.py
+
 import sqlite3
 
 con= None;
@@ -6,15 +8,14 @@ cs = None;
 try:
     con = sqlite3.connect('addr.db');
     cs = con.cursor();
-    insertsql = 'INSERT INTO tb_addr VALUES ("%s","%s","%s")';
+    deletesql = 'DELETE FROM tb_addr WHERE name="%s" ';
     name = input('Input Name:');
-    phone = input('Input Phone:');
-    addr = input('Input Addr:');
-    cs.execute(insertsql % (name, phone, addr));
+
+    cs.execute(deletesql % (name));
     con.commit();
 
 except:
-    print('Duplicated ID Error');
+    print('Error');
 
 finally:
     if cs is not None:
