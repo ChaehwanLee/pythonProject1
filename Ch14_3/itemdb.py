@@ -33,14 +33,39 @@ def insert(*data):
         close(cs, con);
 
 
-def delete():
-    return None;
+def delete(id):
+    try:
+        con = connect('item.db');
+        cs = con.cursor();
+        cs.execute(itemsql.ITEM_DELETE % (id));
+        con.commit();
+    except:
+        raise Exception;
+    finally:
+        close(cs, con);
 
-def update():
-    return None;
+def update(*data):
+    try:
+        con = connect('item.db');
+        cs = con.cursor();
+        cs.execute(itemsql.ITEM_UPDATE % data);
+        con.commit();
+    except:
+        raise Exception;
+    finally:
+        close(cs, con);
 
-def selectone():
-    return None;
+def selectone(id):
+    try:
+        con = connect('item.db');
+        cs = con.cursor();
+        cs.execute(itemsql.ITEM_SELECT_ONE % (id));
+        results = cs.fetchone();
+    except:
+        raise Exception;
+    finally:
+        close(cs, con);
+    return results;
 
 def select():
     try:
@@ -61,12 +86,22 @@ if __name__ == '__main__':
     #     insert(104,'pants',10000,3.4);
     # except:
     #     print('Error');
+    # try:
+    #     results = select();
+    #     for data in results:
+    #         print('%d %s %d %f' % data);
+    # except:
+    #     print('Error');
+
+    # try:
+    #     result = selectone()
+    #
     try:
-        results = select();
-        for data in results:
-            print('%d %s %d %f' % data);
+        update('shirts',20000,5.4,100);
     except:
         print('Error');
+
+
 
 
 

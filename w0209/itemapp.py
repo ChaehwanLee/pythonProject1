@@ -1,3 +1,4 @@
+# itemapp.py code 만 업로드
 # itemapp.py
 import itemdb
 
