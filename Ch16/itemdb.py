@@ -87,6 +87,10 @@ def selectui():
         cs = con.cursor();
         cs.execute(itemsql.ITEM_SELECT);
         results = cs.fetchall();
+        # [(),(),()]
+        for result in results:
+            st = '%d %s %d %f';
+            list.append(st % result);
     except:
         raise Exception;
     finally:
@@ -96,17 +100,23 @@ def selectui():
 
 
 if __name__ == '__main__':
+    try:
+        result = selectui();
+        print(result);
+    except:
+        print('error');
+
     #makeTable('item.db');
     # try:
     #     insert(104,'pants',10000,3.4);
     # except:
     #     print('Error');
-    try:
-        results = select();
-        for data in results:
-            print('%d %s %d %f' % data);
-    except:
-        print('Error');
+    # try:
+    #     results = select();
+    #     for data in results:
+    #         print('%d %s %d %f' % data);
+    # except:
+    #     print('Error');
 
     # try:
     #     result = selectone()
