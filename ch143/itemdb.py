@@ -79,6 +79,19 @@ def select():
         close(cs, con);
     return results;
 
+def selectui():
+    try:
+        con = connect('item.db');
+        cs = con.cursor();
+        cs.execute(itemsql.ITEM_SELECT);
+        results = cs.fetchall();
+    except:
+        raise Exception;
+    finally:
+        close(cs, con);
+    return results;
+
+
 
 if __name__ == '__main__':
     #makeTable('item.db');
@@ -86,24 +99,17 @@ if __name__ == '__main__':
     #     insert(104,'pants',10000,3.4);
     # except:
     #     print('Error');
-    # try:
-    #     results = select();
-    #     for data in results:
-    #         print('%d %s %d %f' % data);
-    # except:
-    #     print('Error');
+    try:
+        results = select();
+        for data in results:
+            print('%d %s %d %f' % data);
+    except:
+        print('Error');
 
     # try:
     #     result = selectone()
     #
-    try:
-        update('shirts',20000,5.4,100);
-    except:
-        print('Error');
-
-
-
-
-
-
-
+    # try:
+    #     update('shirts',20000,5.4,100);
+    # except:
+    #     print('Error');
