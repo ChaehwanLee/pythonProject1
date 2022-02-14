@@ -89,7 +89,7 @@ def selectui():
         results = cs.fetchall();
         # [(),(),()]
         for result in results:
-            st = '%d %s %d %f';
+            st = '%d ,%s, %d, %f';
             list.append(st % result);
     except:
         raise Exception;

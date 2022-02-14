@@ -2,7 +2,7 @@
 
 import wx;
 import weather;
-from ch143 import itemdb;
+import itemdb;
 
 app = wx.App();
 frame = wx.Frame(None, 0, 'Test');
