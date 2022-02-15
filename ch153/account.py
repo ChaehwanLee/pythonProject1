@@ -5,8 +5,8 @@
 # 2. 행위
 
 # Account Class
-# 1. 속성 : balance
-# 2. 행위 : deposit, widthdraw
+# 1. 속성 : accno, balance, owner
+# 2. 행위 : deposit, widthdraw, inquire
 # UML(Unified Modeling Language) / db, modeling 을 잘하는 사람 but 둘 다 잘해야한다.
 
 class Account():
@@ -39,3 +39,7 @@ class Account():
         return self.__balance;
     def __str__(self):
         return self.__accno+":"+str(self.__balance)+':'+self.__owner;
+
+# IAccount
+# 1. 속성 : accno, balance, name, interest
+# 2. 행위 : deposite, widthdraw, inquire, calcinterest
