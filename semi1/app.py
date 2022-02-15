@@ -1,4 +1,4 @@
-# itemapp.py
+# app.py
 import itemdb
 
 def start():
