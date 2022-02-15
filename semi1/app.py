@@ -1,63 +1,79 @@
 # app.py
-import itemdb
+#import itemdb
+from semi1.itemdb import ItemDb
+from semi1.itemmodel import Item
+
 
 def start():
+    itemdb = ItemDb('shopdb');
     print('Start App');
     while True:
-        cmd = input('Input CMD(q,i,s,so,u,d)');
-        if cmd == 'q':
-            break;
+
+
+        cmd = input('Input CMD(q,i,s,so,u,d)')
+        if cmd =='q':
+            break
+
         elif cmd == 'i':
             print('Insert Item');
-            id = int(input('ID'));
-            name = input('NAME:');
-            price = int(input('PRICE:'));
-            rate = float(input('FLOAT'));
             try:
-                itemdb.insert(id,name,price,rate);
+                id = int(input('ID:'));
+                name = input('Name');
+                price = int(input('price'));
+                rate = float(input('Float'));
+                item = Item(id,name,price,rate);
+                itemdb.insert(item);
                 print('Inserted OK');
-            except:
+            except Exception as e:
                 print('Insert Error');
 
+
         elif cmd == 's':
-            print('Item Select');
+            print('Item select');
             try:
-                datas = itemdb.select();
+                #datas = itemdb.select();
                 for data in datas:
-                    print('%d %s %d %f' % data);
+                    print('%d %s %d %f' %data);
             except:
-                print('Select Error');
+                print('Select Error')
+
 
         elif cmd == 'so':
-            print('Insert Select One');
+            print('Item selectone');
             try:
-                id = int(input('id: '))
-                results = itemdb.selectone(id);
-                print(results)
+                name = input('Input Name....');
+                #datas = itemdb.selectone(name);
+                print('%d %s %d %f' % data);
             except:
-                print('Error');
+                print('Select Error')
+
+
+            print('select one Item');
+
+
 
         elif cmd == 'u':
-            print('Insert Update');
+            print('update Item');
             try:
-                id = int(input('Id'));
+                id = int(input('ID:'));
                 name = input('Name');
-                price = int(input('Price'));
-                rate = int(input('Rate'));
-                itemdb.update(id, name, price, rate)
+                price = int(input('price'));
+                rate = float(input('Float'));
+                #itemdb.update(id,name,price,rate)
             except:
-                print('Update Error')
+                print('update Error')
 
         elif cmd == 'd':
-            print('Insert Delete');
+            print('delete Item')
             try:
-                id=int(input('ID'));
-                itemdb.delete(id)
+                id = input('Input name:');
+                #itemdb.delete(id)
             except:
-                print('Delete Error')
+                print('delete Error')
+
+
 
     print('End App');
 
-
 if __name__ == '__main__':
-    start();
+    start()

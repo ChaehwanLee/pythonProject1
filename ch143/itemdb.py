@@ -1,5 +1,7 @@
 # itemdb.py
-import sqlite3,itemsql
+import sqlite3
+from ch143 import itemsql
+
 
 def connect(dbname):
     con = sqlite3.connect(dbname);

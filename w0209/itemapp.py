@@ -1,5 +1,5 @@
-# itemapp.py code 만 업로드
-# itemapp.py
+# app.py code 만 업로드
+# app.py
 import itemdb
 
 def start():
