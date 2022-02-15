@@ -1,4 +1,4 @@
-# Account.py
+# account.py
 
 # Class
 # 1. 속성
