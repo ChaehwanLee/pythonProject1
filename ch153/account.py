@@ -8,6 +8,7 @@
 # 1. 속성 : accno, balance, owner
 # 2. 행위 : deposit, widthdraw, inquire
 # UML(Unified Modeling Language) / db, modeling 을 잘하는 사람 but 둘 다 잘해야한다.
+
 from ch153.bank import interest
 
 
@@ -90,4 +91,4 @@ class IAccount(Account):
         return self.__interest;
 
     def setinterest(self):
-        return self.__interest = interest;
+        self.__interest = interest;
